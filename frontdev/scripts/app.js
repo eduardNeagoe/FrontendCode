@@ -41,18 +41,19 @@ var employeesList = [
 function showList(){
     //Construieste in string html-ul unui tabel:
     var myTable = '<table border="1" class="table"><tr><th>First Name</th><th>Last' +
-        'Name</th><th>Phone</th><th>Salary</th></tr>';
+        'Name</th><th>Phone</th><th>Salary</th><th>Vizualizare</th><th>Stergere</th></tr>';
 
         //for each: aici i este index, spre deosebire de java unde i este direct obiectul
         for(var i in employeesList){ //td = table data(celula)
-            myTable +=  '<tr><td>'+employeesList[i].firstName+'</td><td>'+employeesList[i].lastName+'</td><td>'+employeesList[i].phone+'</td><td>'+employeesList[i].salary+'</td></tr>';
+            myTable +=  '<tr><td>'+employeesList[i].firstName+'</td><td>'+employeesList[i].lastName+'</td><td>'+employeesList[i].phone+'</td><td>'+employeesList[i].salary+'</td>'+
+                '<td><button onclick = alert()>Vizualizare</button></td>'+'<td><button onclick = deleteEmployee()>Stergere</button></td></td></tr>';
         }
+        myTable += '<tr><td></td>'+'<td></td>'+'<td></td>'+'</td><td>'+average()+'</td></tr>';
+
+
         myTable += '</table>';//inchide tabelul
         var container = document.getElementById('listcontainer');
         container.innerHTML = myTable;//adauga acest cod html in fisierul html
-
-
-
 }
 
 var Employee = function(firstName, lastName, phone, salary){
@@ -81,8 +82,38 @@ function totalSalary(){
    document.getElementById("totalSalaryCont").innerHTML = total;
 }
 
-function deleteEmployee() {
-    employeesList.splice(employeesList.length - 1, 1);
-
+function deleteLastEmployee() {
+    employeesList.splice(employeesList.length - 1, 1);//delete(index, number of objects deleted)
     showList();
 }
+
+// function alertEmployee(){
+//     // for(var i in employeesList){
+//     //    var lastName = employeesList[i].lastName;
+//     //    var firstName = ;
+//     //    var phone = employeesList[i].phone;employeesList[i].lastName);
+//     // }
+//
+//     //alert(employeesList[i].firstName+employeesList[i].lastName+employeesList[i].phone+employeesList[i].salary);
+//     //alert(JSON.stringify(employeesList));
+//
+//     // str = JSON.stringify(employeesList[i]);
+//     // alert(str);
+//
+// }
+function deleteEmployee() {
+    // employeesList.splice(i, 1);
+    showList();
+}
+function average(){
+    var average = 0;
+    for(var i in employeesList){
+        average +=parseInt(employeesList[i].salary);
+    }
+    return average/employeesList.length - 1;
+}
+
+
+
+
+
