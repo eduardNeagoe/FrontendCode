@@ -10,28 +10,30 @@
 </head>
 <body>
     <h1>Sample Application</h1>
-    <div ng-app = "hrApp">//legarea de modulul de angular instantiat in app.js
-        <div ng-controller = "MainController">//daca nu se defineste acest ng-controller se va lega name de rootScope(scope-ul default)
-            //deci functiona in continuare, legandu-se de rootScope
-            <p>Enter your Name: <input type = "text" ng-model = "name"></p>//ng-model leaga var name de scope-ul lui MainController
-            <p>Hello <span ng-bind="name"></span>!</p>
-            <!--<p>-->
-                <!--<a class = "btn btn-primary btn-lg" role = "button" ng-click = "setFirstVariable()">Set first Variable </a>-->
-            <!--</p>-->
+    <div ng-app = "hrApp">
+        <!--//legarea de modulul de angular instantiat in app.js-->
+        <div ng-controller = "MainController">
+            <!--//daca nu se defineste acest ng-controller se va lega name de rootScope(scope-ul default)-->
+            <!--//deci va functiona in continuare, legandu-se de rootScope-->
+            <p>Enter your Name: <input type = "text" ng-model = "name"></p>
+            <!--//ng-model leaga var name de scope-ul lui MainController-->
+            <!--<p>Hello <span ng-bind="name"></span>!</p>-->
+            <p>Hello {{name}}</p>
         </div>
 
         <div ng-controller = "DescriptionController">
             <p>Title : <input type = "text" ng-model = "title"></p>
             <p>The title you inserted: <span ng-bind = "title"></span></p>
 
-        <div ng-include = "'views/main.html'"></div>
+        <!--<div ng-include = "'view/main.html'"></div>-->
         <div ng-include="'view/scopes.html'"></div>
+            <!--<div ng-include  = "'view/childscope.html'">-->
 
             <div class = "container">
                 <div class = "jumbotron" ng-show="descriptionShow">
                     <h1>{{title}}</h1>
                     <p class = "lead">
-                        A simple demo application.
+                         A simple demo application.
                     </p>
                     <p class = "lead">
                         In this application we will use AngularJS framework.
@@ -42,6 +44,9 @@
                     <a class = "btn btn-primary btn-lg" role = "button" ng-click = "toggleDescriptionShow()">Show/Hide Description </a>
                 </p>
             </div>
+
+
+
         </div>
 
     </div>
@@ -57,6 +62,7 @@
 <script type = "text/javascript" src = "scripts/MainController.js"></script>
 <script type = "text/javascript" src = "scripts/DescriptionController.js"></script>
 <script type = "text/javascript" src = "scripts/ScopesController.js"></script>
-<!--<script type = "text/javascript" src = "scripts/MenuController.js"></script>-->
+<script type = "text/javascript" src = "scripts/MenuController.js"></script>
+<script type = "text/javascript" src = "scripts/OtherController.js"></script>
 </body>
 </html>

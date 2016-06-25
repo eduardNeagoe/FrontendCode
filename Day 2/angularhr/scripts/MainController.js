@@ -3,6 +3,6 @@
  */
 hrApp.controller('MainController', ['$rootScope', '$scope', function($rootScope, $scope){
     $scope.name = "Ed";
-    alert($scope.name);
+    //  alert($scope.name);
 }]);
 
