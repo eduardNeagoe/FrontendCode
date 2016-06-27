@@ -1,5 +1,7 @@
 // TODO #2 load ngRoute module
 var hrApp = angular.module("hrApp",['ngRoute']);
+
+
 // TODO #3 add default route for main page
 hrApp.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/',{
@@ -7,7 +9,7 @@ hrApp.config(['$routeProvider', function($routeProvider){
         controller:'MainController'
     }).when('/numbers',{
         redirectTo: '/math'
-}).when('/math', {
+    }).when('/math', {
         templateUrl: 'views/demo/math.html',
         controller: 'MathController'
     }).when('/demoRequest', {
@@ -17,17 +19,14 @@ hrApp.config(['$routeProvider', function($routeProvider){
         templateUrl: 'views/employeelist.html',
         controller: 'EmployeeListController'
     })
-        .when('/employeeview/:employeeid', {
+      .when('/employeeview/:employeeid', {
             templateUrl: 'views/employeeview.html',
             controller: 'EmployeeViewController'
-        });
-
-
-    // otherwise({
-    //     redirectTo: '#/numbers'
-    // });
-
-
+    })
+      .when('/user',{
+          templateUrl: 'views/user.html',
+          controller:'UserController'
+      });
 }]);
 
 // TODO #4 add #/numbers route and use redirectTo
