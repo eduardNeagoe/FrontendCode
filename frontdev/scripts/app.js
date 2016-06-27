@@ -34,7 +34,7 @@ var employeesList = [
         lastName: 'Hudson',
         phone: '123456798',
         salary: '4500'
-    },
+    }
 
 ];
 
@@ -45,8 +45,9 @@ function showList(){
 
         //for each: aici i este index, spre deosebire de java unde i este direct obiectul
         for(var i in employeesList){ //td = table data(celula)
-            myTable +=  '<tr><td>'+employeesList[i].firstName+'</td><td>'+employeesList[i].lastName+'</td><td>'+employeesList[i].phone+'</td><td>'+employeesList[i].salary+'</td>'+
-                '<td><button onclick = alert()>Vizualizare</button></td>'+'<td><button onclick = deleteEmployee()>Stergere</button></td></td></tr>';
+
+            myTable += '<tr><td>'+employeesList[i].firstName+'</td><td>'+employeesList[i].lastName+'</td><td>'+employeesList[i].phone+'</td><td>'+employeesList[i].salary+
+                '</td> <td> <button type="button" onclick="alertEmployee('+ i+')"> Vizualizare </button> </td> <td> <button type="button" onclick="deleteEmployee('+ i+')"> Stergere </button></td></tr>';
         }
         myTable += '<tr><td></td>'+'<td></td>'+'<td></td>'+'</td><td>'+average()+'</td></tr>';
 
@@ -87,22 +88,12 @@ function deleteLastEmployee() {
     showList();
 }
 
-// function alertEmployee(){
-//     // for(var i in employeesList){
-//     //    var lastName = employeesList[i].lastName;
-//     //    var firstName = ;
-//     //    var phone = employeesList[i].phone;employeesList[i].lastName);
-//     // }
-//
-//     //alert(employeesList[i].firstName+employeesList[i].lastName+employeesList[i].phone+employeesList[i].salary);
-//     //alert(JSON.stringify(employeesList));
-//
-//     // str = JSON.stringify(employeesList[i]);
-//     // alert(str);
-//
-// }
-function deleteEmployee() {
-    // employeesList.splice(i, 1);
+function alertEmployee(i){
+    alert(employeesList[i].firstName+" "+employeesList[i].lastName+" "+employeesList[i].phone+" "+employeesList[i].salary);
+    showList();
+}
+function deleteEmployee(i) {
+    employeesList.splice(i, 1);
     showList();
 }
 function average(){

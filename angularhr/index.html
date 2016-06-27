@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR App</title>
+    <link rel = "stylesheet" type = "text/css" href ="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel = "stylesheet" type = "text/css" href ="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+
+</head>
+<body>
+    <h1>Sample Application</h1>
+    <div ng-app = "hrApp">
+        <!--//legarea de modulul de angular instantiat in app.js-->
+        <div ng-controller = "MainController">
+            <!--//daca nu se defineste acest ng-controller se va lega name de rootScope(scope-ul default)-->
+            <!--//deci va functiona in continuare, legandu-se de rootScope-->
+            <p>Enter your Name: <input type = "text" ng-model = "name"></p>
+            <!--//ng-model leaga var name de scope-ul lui MainController-->
+            <!--<p>Hello <span ng-bind="name"></span>!</p>-->
+            <p>Hello {{name}}</p>
+        </div>
+
+        <div ng-controller = "DescriptionController">
+            <p>Title : <input type = "text" ng-model = "title"></p>
+            <p>The title you inserted: <span ng-bind = "title"></span></p>
+
+        <!--<div ng-include = "'view/main.html'"></div>-->
+        <div ng-include="'view/scopes.html'"></div>
+            <!--<div ng-include  = "'view/childscope.html'">-->
+
+            <div class = "container">
+                <div class = "jumbotron" ng-show="descriptionShow">
+                    <h1>{{title}}</h1>
+                    <p class = "lead">
+                         A simple demo application.
+                    </p>
+                    <p class = "lead">
+                        In this application we will use AngularJS framework.
+                    </p>
+
+                </div>
+                <p>
+                    <a class = "btn btn-primary btn-lg" role = "button" ng-click = "toggleDescriptionShow()">Show/Hide Description </a>
+                </p>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+<script type = "text/javascript" src = "bower_components/jquery/jquery.js"></script>
+<script type = "text/javascript" src = "bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type = "text/javascript" src = "bower_components/angular/angular.js"></script>
+<script type = "text/javascript" src = "scripts/app.js"></script>
+<script type = "text/javascript" src = "scripts/MainController.js"></script>
+<script type = "text/javascript" src = "scripts/DescriptionController.js"></script>
+<script type = "text/javascript" src = "scripts/ScopesController.js"></script>
+<script type = "text/javascript" src = "scripts/MenuController.js"></script>
+<script type = "text/javascript" src = "scripts/OtherController.js"></script>
+</body>
+</html>
