@@ -1,0 +1,11 @@
+<select ng-model = "selectedText" ng-options="color as color.text for color in colors track by color.text" ng-change="changeColor()"></select>
+<select ng-model = "groupedText" ng-options = "color as color.text group by color.class for color in colors track by color.text"></select>
+<span ng-class = "selectedColorClass">Some text</span>
+<div><input type = "text" ng-model = "var">Input: </input></div>
+<!--<div ng-repeat="color in colors  | orderBy: var">-->
+    <!--{{color.text}}-->
+<!--</div>-->
+<!--/to specify the exact property-->
+<div ng-repeat="color in colors | filter:{text:var}">
+    {{color.text}}
+</div>e

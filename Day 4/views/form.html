@@ -1,0 +1,16 @@
+
+<ng-form name ="myForm" ng-controller="FormsController" class="my-form">
+    userType: <input name="input" ng-model="userType" required>
+    <span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
+    userType = {{userType}}<br>
+    myForm.input.$valid = {{myForm.input.$valid}}<br>
+    myForm.input.$error = {{myForm.input.$error}}<br>
+    myForm.$valid = {{myForm.$valid}}<br>
+    myForm.$error.required = {{!!myForm.$error.required}}<br>
+    <button class="btn btn-default" ng-click="submitForm()">Submit</button>
+
+</ng-form>
+
+<!--<div ng-form ="form">-->
+    <!--<p>form.$valid</p>-->
+<!--</div>-->
