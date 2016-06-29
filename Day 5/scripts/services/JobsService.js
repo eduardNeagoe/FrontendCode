@@ -9,13 +9,13 @@ hrApp.service('JobsService',['$http', 'CommonResourcesFactoryBackup', function (
                     return data;
                 })
                 .error(function (err) {
-                    alert('Eroare'+err);
+                    alert('Error'+err);
                     return err;
                 });
         },
 
         findById: function (jobId) {
-            return $http.get(CommonResourcesFactoryBackup.findOneJobUrl +'/'+ jobId)
+            return $http.get(CommonResourcesFactoryBackup.findOneJobUrl + jobId)
                 .success(function (data){
                     return data;
                 })

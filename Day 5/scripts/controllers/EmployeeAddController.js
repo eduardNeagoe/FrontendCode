@@ -9,7 +9,7 @@ hrApp.controller('EmployeeAddController',
 
         EmployeeService.findAllEmpl()
             .then(function (res) {
-                console.log(res.data[0]);
+                // console.log(res.data[0]);
                 $scope.managers = res.data;
             }, function (err) {
                 console.log("Error at employees/findAllEmpl: " + err);
@@ -23,7 +23,7 @@ hrApp.controller('EmployeeAddController',
         });
         JobsService.findAllJobs()
             .then(function (res) {
-                console.log(res.data[0]);
+                // console.log(res.data[0]);
                 $scope.jobs = res.data;
             }, function (err) {
                 console.log("Error at employees/findAllJobs: " + err);
