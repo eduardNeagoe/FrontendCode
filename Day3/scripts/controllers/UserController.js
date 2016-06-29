@@ -12,7 +12,6 @@ hrApp.controller('UserController', ['$scope', '$rootScope','$location','UserServ
 
         $scope.saveUsers = function() {
            $scope.usersDetailsList = UserService;
-            //$scope.userDetails = UserService;
             console.log($scope.firstName);
             console.log($scope.usersDetailsList.f);
             alert("Your personal information has been saved successfully !");
